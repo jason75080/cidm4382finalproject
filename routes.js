@@ -5,6 +5,7 @@ var crypto = require('crypto');
 var express = require('express');
 module.exports = function(app) {
   var users = require('./controllers/users_controller');
+  var students = require('./controllers/students_controller');
   app.use('/static', express.static( './static')).
       use('/lib', express.static( './lib')
   );
@@ -44,8 +45,9 @@ module.exports = function(app) {
   app.get('/list',  function(req, res){
     if(req.session.user){
       res.render('studentlist', {msg:req.session.msg});
-    }
+    }else{
       res.redirect('/login');
+    }
   });
 
   app.get('/logout', function(req, res){

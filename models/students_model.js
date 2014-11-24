@@ -18,9 +18,7 @@ var studentSchema = new Schema({
     //portfolio repository
     portfolio: {type: String, index: 1, required: false},
     //linkedin link
-    linkedin: {type: String, index: 1, required: false},
-    // User Since field
-    usersince: { type: Date}
+    linkedin: {type: String, index: 1, required: false}
     //commentId: Schema.ObjectId
 });
 
