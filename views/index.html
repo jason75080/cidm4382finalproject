@@ -1,0 +1,64 @@
+<!-- this IS an AngularJS template.  This is what we see when the site loads
+-->
+<!doctype html>
+<html ng-app="myApp">
+
+<head>
+    <title>User Login and Sessions</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/styles.css" />
+</head>
+
+<body>
+    <div ng-controller="myController">
+        <h2>Welcome {{ user.firstname }}!!!</h2>
+
+        <br>
+
+        <table>
+            <tr>
+                <td>Name: </td>
+                <td>{{ user.firstname }} {{user.lastname }}</td>
+            </tr>
+            <tr>
+                <td>Phone: </td>
+                <td> {{ user.phone }}</td>
+            </tr>
+            <tr>
+                <td>Email: </td>
+                <td>{{ user.email}}</td>
+            </tr>
+            
+        </table>
+          
+        <br><br>
+
+      <tr>
+      <td>
+        <button class="btn" ng-click="editUser(user.id)">
+            <a href="/user">Edit User</a>
+        </button>
+      </td> 
+      </tr>
+      <tr>
+      <td>
+        <button class="btn" ng-click="editUser(user.id)">
+            <a href="/logout">Logout</a>
+        </button>
+      </td> 
+      </tr>
+      <tr>
+      <td>
+        <button class="btn" ng-click="editUser(user.id)">
+            <a href="/list">Student List</a>
+        </button>
+      </td> 
+      </tr>
+
+    </div>
+    <hr>
+    <%= msg %>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+        <script src="./static/js/my_app.js"></script>
+</body>
+
+</html>
