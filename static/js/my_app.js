@@ -20,7 +20,7 @@ var finalapp = angular.module('myApp', []);
     
     finalapp.controller('otherController', ['$scope', '$http',
         function($scope, $http) {
-            $http.get('/student/list')
+            $http.get('/students/list')
             .success(function(data, status, headers, config) {
                 $scope.user = data;
                 $scope.error = "";
