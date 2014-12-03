@@ -20,9 +20,20 @@ var finalapp = angular.module('myApp', []);
     
     finalapp.controller('otherController', ['$scope', '$http',
         function($scope, $http) {
+            
             $http.get('/students/list')
             .success(function(data, status, headers, config) {
-                $scope.user = data;
+                $scope.students = data;
+                $scope.error = "";
+            }).
+            error(function(data, status, headers, config) {
+                $scope.user = {};
+                $scope.error = data;
+            });
+            
+            $http.get('/student/profile')
+            .success(function(data, status, headers, config) {
+                $scope.students = data;
                 $scope.error = "";
             }).
             error(function(data, status, headers, config) {

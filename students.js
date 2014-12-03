@@ -132,7 +132,7 @@ function DisplayStudentsCollectionObjects()
 // Job #1
 function CreateDatabaseAndCollection() 
 {
-    var dbName = "studentsdb";
+    var dbName = "users";
 
     //connect
     var studentsdb = mongoose.connect(connString + dbName);

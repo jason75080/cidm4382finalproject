@@ -49,6 +49,15 @@ module.exports = function(app) {
       res.redirect('/login');
     }
   });
+  
+    app.get('/student',  function(req, res){
+    if(req.session.user){
+      res.render('student', {msg:req.session.msg});
+    }else{
+      res.redirect('/login');
+    }
+  });
+  
 
   app.get('/logout', function(req, res){
     req.session.destroy(function(){
@@ -61,6 +70,6 @@ module.exports = function(app) {
   app.post('/user/delete', users.deleteUser);
   app.post('/login', users.login);
   app.get('/user/profile', users.getUserProfile);
-  app.get('/student/list', students.listStudents);
-
+  app.get('/students/list', students.getStudents);
+  app.get('/student/profile', students.getStudent);
 }

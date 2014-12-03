@@ -1,11 +1,11 @@
-var mongoose = require('mongoose'),
-    Student = mongoose.model('Student');
+var mongoose = require('mongoose');
+var Student = mongoose.model('Student');
     
 //this is exported for external use - the routing code will call this
 exports.getStudent = function(req, res) {
-    //using the Photo model, find the photo matching this id
+    //using the student model find student
     Student.findOne({
-            _id: req.query.studentId
+            _id: req.query.id
         })
         .exec(function(err, student) {
             if (!student) {
@@ -19,10 +19,16 @@ exports.getStudent = function(req, res) {
             }
         });
 };
+
 exports.getStudents = function(req, res) {
-    //this query finds all photos
+    
+    //this query finds all students
     Student.find()
         .exec(function(err, students) {
+            if(err)
+            {
+                alert(err);
+            }
             if (!students) {
                 res.json(404, {
                     msg: 'List of Students Not Found.'

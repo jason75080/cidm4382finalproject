@@ -1,0 +1,42 @@
+<!-- this IS an AngularJS template.  This is what we see when the site loads
+-->
+<!doctype html>
+<html ng-app="myApp">
+
+<head>
+    <title>User Login and Sessions</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/styles.css" />
+</head>
+
+<body>
+    <div ng-controller="otherController">
+        <h2>Students Profile</h2>
+
+        <br>
+
+        <ul>
+            <li>
+                {{students.firstname}} {{students.lastname}}
+            </li>
+        </ul>
+          
+        <br><br>
+
+      <tr>
+      <td>
+        <button class="btn" ng-click="editUser(user.id)">
+            <a href="/">Back</a>
+        </button>
+      </td> 
+      </tr>
+     
+      
+
+    </div>
+    <hr>
+    <%= msg %>
+        <script src="./static/js/angular.min.js"></script>
+        <script src="./static/js/my_app.js"></script>
+</body>
+
+</html>
