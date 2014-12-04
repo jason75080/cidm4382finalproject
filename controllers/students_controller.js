@@ -10,7 +10,7 @@ exports.getStudent = function(req, res) {
         .exec(function(err, student) {
             if (!student) {
                 res.json(404, {
-                    msg: 'List of Students Not Found.'
+                    msg: 'Student Not Found.'
                 });
             }
             else {

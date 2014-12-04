@@ -12,11 +12,26 @@
     <div ng-controller="otherController">
         <h2>Students List</h2>
 
+
+        <b>Filter Students:</b><br />
+        By first name:
+        <input type="text" ng-model="filterText.firstname" />
+        <br />
+        By last name:
+        <input type="text" ng-model="filterText.lastname" />
+        <br />
+        By status:
+        <input type="text" ng-model="filterText.status" />
+        <br />
+        By classification:
+        <input type="text" ng-model="filterText.classification" />
+
+
         <br>
 
         <ul>
-            <li ng-repeat="stud in students">
-                {{stud.firstname}} {{stud.lastname}}
+            <li ng-repeat="stud in students | filter:filterText:strict | orderBy: 'lastname'">
+                <a href="#">{{stud.firstname}} {{stud.lastname}}</a> -- {{stud.status}} - {{stud.classification}}
             </li>
         </ul>
           

@@ -178,7 +178,7 @@ function CreateDatabaseAndCollection()
         
         var student003 = new Student(
         {
-            firstname: "Maya",
+            firstname: "Mayra",
             lastname: "Gomez",
             phone: "8062211910",
             email: "mayrag006@gmail.com",
@@ -188,8 +188,153 @@ function CreateDatabaseAndCollection()
             linkin: "linkedin.mayragomez.com"
         });
         
+        var student004 = new Student(
+        {
+            firstname: "Lauren",
+            lastname: "Alvarez",
+            phone: "2146664499",
+            email: "lauren@gmail.com",
+            classification: "Junior",
+            status: "Current",
+            portfolio: "github.com/lauren/project",
+            linkin: "linkedin.laurenalvarez.com"
+        });
+        
+        var student005 = new Student(
+        {
+            firstname: "Anthony",
+            lastname: "Petruccione",
+            phone: "8065559321",
+            email: "anthony@gmail.com",
+            classification: "Sophomore",
+            status: "Current",
+            portfolio: "github.com/anthony/finalproject",
+            linkin: "linkedin.anthonyp.com"
+        });
+        
+        var student006 = new Student(
+        {
+            firstname: "Dustin",
+            lastname: "Bell",
+            phone: "9722387766",
+            email: "dustin@gmail.com",
+            classification: "Graduate",
+            status: "Alumni",
+            portfolio: "github.com/dustin/finalproject",
+            linkin: "linkedin.dustinbell.com"
+        });
+        
+        var student007 = new Student(
+        {
+            firstname: "Jordan",
+            lastname: "Brittenham",
+            phone: "8062569900",
+            email: "jordan@gmail.com",
+            classification: "HS",
+            status: "Prospect",
+            portfolio: "github.com/jordan/finalproject",
+            linkin: "linkedin.jordanb.com"
+        });
+        
+        var student008 = new Student(
+        {
+            firstname: "Derrick",
+            lastname: "Burns",
+            phone: "8174439087",
+            email: "derrick@gmail.com",
+            classification: "Freshman",
+            status: "Current",
+            portfolio: "github.com/derrick/finalproject",
+            linkin: "linkedin.derrickburns.com"
+        });
+        
+        var student009 = new Student(
+        {
+            firstname: "Brett",
+            lastname: "Dunlap",
+            phone: "8065550123",
+            email: "brett@gmail.com",
+            classification: "Junior",
+            status: "Current",
+            portfolio: "github.com/brett/finalproject",
+            linkin: "linkedin.brettd.com"
+        });
+        
+        var student010 = new Student(
+        {
+            firstname: "Leeland",
+            lastname: "Hackbarth",
+            phone: "7135550123",
+            email: "lee@gmail.com",
+            classification: "Senior",
+            status: "Current",
+            portfolio: "github.com/leeland/finalproject",
+            linkin: "linkedin.leelandh.com"
+        });
+        
+        var student011 = new Student(
+        {
+            firstname: "Chern",
+            lastname: "Hee",
+            phone: "8175550123",
+            email: "chern@gmail.com",
+            classification: "HS",
+            status: "Prospect",
+            portfolio: "github.com/chern/finalproject",
+            linkin: "linkedin.chernhee.com"
+        });
+        
+        var student012 = new Student(
+        {
+            firstname: "Alejandro",
+            lastname: "Magallanes",
+            phone: "2145559876",
+            email: "alejandro@gmail.com",
+            classification: "Graduate",
+            status: "Alumni",
+            portfolio: "github.com/magallanes/finalproject",
+            linkin: "linkedin.magallanes.com"
+        });
+        
+        var student013 = new Student(
+        {
+            firstname: "Rodrigo",
+            lastname: "Mata",
+            phone: "2145555648",
+            email: "mata@gmail.com",
+            classification: "Graduate",
+            status: "Alumni",
+            portfolio: "github.com/mata/finalproject",
+            linkin: "linkedin.mata.com"
+        });
+        
+        var student014 = new Student(
+        {
+            firstname: "James",
+            lastname: "Ritter",
+            phone: "5035550123",
+            email: "james@gmail.com",
+            classification: "Senior",
+            status: "Current",
+            portfolio: "github.com/james/finalproject",
+            linkin: "linkedin.james.com"
+        });
+        
+        var student015 = new Student(
+        {
+            firstname: "Skyler",
+            lastname: "Schmidt",
+            phone: "6025550123",
+            email: "skyler@gmail.com",
+            classification: "Freshman",
+            status: "Current",
+            portfolio: "github.com/skyler/finalproject",
+            linkin: "linkedin.skyler.com"
+        });
+        
 
-        Student.create([student001,student002,student003], function(err, records) 
+        Student.create([student001,student002,student003,student004,student005,student006,student007,student008,student009,
+                        student010,student011,student012,student013,student014,student015], function(err, records) 
         {
             console.log("\nThese are the student documents that were created:");
             var query = Student.find();
