@@ -9,37 +9,41 @@
 </head>
 
 <body>
-    <div class="form-container" ng-controller="myController">
-        <p class="form-header">User Profile</p>
-        <form method="POST" action="/user/update">
-            <label>Username:</label>
-            <input type="text" name="username" ng-model="user.username" ng-disabled="!edit">
-            <br>
-            <label>First Name:</label>
-            <input type="text" name="firstname" ng-model="user.firstname">
-            <br>
-            <label>Last Name:</label>
-            <input type="text" name="lastname" ng-model="user.lastname">
-            <br>
-            <label>Email:</label>
-            <input type="email" name="email" ng-model="user.email">
-            <br>
-            <label>Phone:</label>
-            <input type="text" name="phone" ng-model="user.phone">
-            <br>
-            <input type="submit" value="Save">
-        </form>
+    <div class="user">
+        <div class="insideuser">
+            <div class="form-container" ng-controller="myController">
+                <p class="form-header">User Profile</p>
+                <form method="POST" action="/user/update">
+                    <label>Username:</label>
+                    <input type="text" name="username" ng-model="user.username" ng-disabled="!edit">
+                    <br>
+                    <label>First Name:</label>
+                    <input type="text" name="firstname" ng-model="user.firstname">
+                    <br>
+                    <label>Last Name:</label>
+                    <input type="text" name="lastname" ng-model="user.lastname">
+                    <br>
+                    <label>Email:</label>
+                    <input type="email" name="email" ng-model="user.email">
+                    <br>
+                    <label>Phone:</label>
+                    <input type="text" name="phone" ng-model="user.phone">
+                    <br>
+                    <input type="submit" value="Save">
+                </form>
+            </div>
+            <form method="POST" action="/user/delete">
+                <input type="submit" value="Delete User">
+            </form>
+            <button class="btn" ng-click="editUser(user.id)">
+                    <a href="/">Back</a>
+                </button>
+        </div>        
+        <hr>
+        <%= msg %>
+            <script src="./static/js/angular.min.js"></script>
+            <script src="./static/js/my_app.js"></script>
     </div>
-    <form method="POST" action="/user/delete">
-        <input type="submit" value="Delete User">
-    </form>
-    <button class="btn" ng-click="editUser(user.id)">
-            <a href="/">Back</a>
-        </button>
-    <hr>
-    <%= msg %>
-        <script src="./static/js/angular.min.js"></script>
-        <script src="./static/js/my_app.js"></script>
 </body>
 
 </html>

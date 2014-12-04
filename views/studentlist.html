@@ -5,53 +5,77 @@
 
 <head>
     <title>User Login and Sessions</title>
-    <link rel="stylesheet" type="text/css" href="/static/css/styles.css" />
+    
+    <link rel="stylesheet" type="text/css" href="/static/css/studentList.css" />
 </head>
 
 <body>
-    <div ng-controller="otherController">
-        <h2>Students List</h2>
-
-
-        <b>Filter Students:</b><br />
-        By first name:
-        <input type="text" ng-model="filterText.firstname" />
-        <br />
-        By last name:
-        <input type="text" ng-model="filterText.lastname" />
-        <br />
-        By status:
-        <input type="text" ng-model="filterText.status" />
-        <br />
-        By classification:
-        <input type="text" ng-model="filterText.classification" />
-
-
-        <br>
-
-        <ul>
-            <li ng-repeat="stud in students | filter:filterText:strict | orderBy: 'lastname'">
-                <a href="#">{{stud.firstname}} {{stud.lastname}}</a> -- {{stud.status}} - {{stud.classification}}
-            </li>
-        </ul>
-          
-        <br><br>
-
-      <tr>
-      <td>
-        <button class="btn" ng-click="editUser(user.id)">
-            <a href="/">Back</a>
-        </button>
-      </td> 
-      </tr>
-     
-      
-
-    </div>
+    <div class="slist">
+        <div ng-controller="otherController">
+            <h2>Students List</h2>
+    
+    
+            <b>Filter Students:</b><br />
+            <span class="fname">By first name:</span>
+            <input type="text" size="5" ng-model="filterText.firstname" />
+            <br />
+            By last name:
+            <input type="text" size="20" ng-model="filterText.lastname" />
+            <br />
+            <span>By status:</span>
+            <select ng-model="filterText.status">
+              <option value=""></option>
+              <option value="prospect">Prospect</option>
+              <option value="current">Current</option>
+              <option value="alumni">Alumni</option>
+            </select>
+            <br />
+            <span class ="classification">By classification:</span>
+            <select ng-model="filterText.classification">
+              <option value=""></option>
+              <option value="hs">High School</option>
+              <option value="freshman">Freshman</option>
+              <option value="Sophomore">Sophomore</option>
+              <option value="Junior">Junior</option>
+              <option value="Senior">Senior</option>
+              <option value="Graduate">Graduate</option>
+            </select>
+    
+            <hr>
+            <br>
+            Details: <input class="box" type="checkbox" ng-model="checked"><br/>
+            <ul>
+                <li ng-repeat="stud in students | filter:filterText:strict | orderBy: 'lastname'">
+                 
+                    <a href='/student/'>{{stud.firstname}} {{stud.lastname}}</a>
+                    <div>
+                  <div class="check-element animate-show" ng-show="checked">
+                    {{stud.status}} - {{stud.classification}}
+                    <br /><br />
+                  </div>
+                </div>
+                <div>
+                </li>
+            </ul>
+              
+            <br><br>
+    
+          <tr>
+          <td>
+            <button class="btn" ng-click="editUser(user.id)">
+                <a href="/">Back</a>
+            </button>
+          </td> 
+          </tr>
+    
+        </div>
+   
     <hr>
     <%= msg %>
         <script src="./static/js/angular.min.js"></script>
         <script src="./static/js/my_app.js"></script>
+        
+    </div>   
 </body>
 
 </html>

@@ -31,7 +31,8 @@ var finalapp = angular.module('myApp', []);
                 $scope.error = data;
             });
             
-            $http.get('/student/profile')
+            $http.get('/student/firstname')
+            
             .success(function(data, status, headers, config) {
                 $scope.students = data;
                 $scope.error = "";

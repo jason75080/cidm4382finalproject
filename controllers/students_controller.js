@@ -4,8 +4,9 @@ var Student = mongoose.model('Student');
 //this is exported for external use - the routing code will call this
 exports.getStudent = function(req, res) {
     //using the student model find student
+    alert("Dude");
     Student.findOne({
-            _id: req.query.id
+            _id: req.query.firstname
         })
         .exec(function(err, student) {
             if (!student) {

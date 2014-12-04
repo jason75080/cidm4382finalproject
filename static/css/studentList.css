@@ -1,0 +1,70 @@
+html{
+    background-color: #5E0404;
+    
+}
+
+body {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    background-color: white;
+    border: 2px solid;
+    border-radius: 10px;
+}
+
+input {
+    border: 1px ridge black;
+    padding: 3px;
+    width : 25%;
+    margin-bottom: 5px;
+    margin-left: 29px;
+}
+
+button {
+    width: 120px;
+    margin-top: 5px;
+    margin-left: 85px;
+    text-decoration: none;
+    border: 2px ridge black;
+    border-radius: 3px;
+}
+
+
+button, a {
+    font: 18px bold;
+    font-variant: small-caps;
+    text-decoration: none;
+     color: black;
+}
+
+span {
+    margin-right: 52px;
+}
+.classification {
+    margin-right: 3px;
+}
+
+select {
+    
+    margin-bottom: 5px;
+    width: 25%;
+}
+.fname {
+    margin-right: -3px;
+}
+.slist{
+    margin: 20px;
+}
+
+a {
+    color:#0040FF;
+}
+
+a:hover {
+    color: #DF7401;
+
+}
+
+.box{
+    margin-left: -150px;
+}

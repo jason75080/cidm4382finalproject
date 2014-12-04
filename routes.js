@@ -57,7 +57,6 @@ module.exports = function(app) {
       res.redirect('/login');
     }
   });
-  
 
   app.get('/logout', function(req, res){
     req.session.destroy(function(){
@@ -71,5 +70,5 @@ module.exports = function(app) {
   app.post('/login', users.login);
   app.get('/user/profile', users.getUserProfile);
   app.get('/students/list', students.getStudents);
-  app.get('/student/profile', students.getStudent);
+  app.get('/student/firstname', students.getStudent);
 }

@@ -190,6 +190,7 @@ function CreateDatabaseAndCollection()
         
         var student004 = new Student(
         {
+            idnumber: "004",
             firstname: "Lauren",
             lastname: "Alvarez",
             phone: "2146664499",
@@ -333,8 +334,7 @@ function CreateDatabaseAndCollection()
         });
         
 
-        Student.create([student001,student002,student003,student004,student005,student006,student007,student008,student009,
-                        student010,student011,student012,student013,student014,student015], function(err, records) 
+        Student.create([student004], function(err, records) 
         {
             console.log("\nThese are the student documents that were created:");
             var query = Student.find();
