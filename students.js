@@ -45,37 +45,38 @@ r1.question("Please enter the number of the job you would like to run: ", functi
 // Job #3
 function DeleteCollection() 
 {
-    var dbName = "studentsdb";
+    var dbName = "users";
 
     //connect
     var studentsdb = mongoose.connect(connString + dbName);
 
     //get the schema - notice how we use the export
-    var studentsSchema = require('./students_schema.js').studentsSchema;
-    var Students = mongoose.model('Students', studentsSchema);
+    var studentSchema = require('./models/students_model.js').studentSchema;
+
+    var Student = mongoose.model('Student', studentSchema);
     setTimeout(function() 
     {
         mongoose.disconnect();
     }, 5000);
     mongoose.connection.once('open', function() 
     {
-        Students.find({}, function(err, docs) 
+        Student.find({}, function(err, docs) 
         {
             console.log("Before delete: ");
             for (var i in docs) 
             {
-                console.log(docs[i].fullName());
+                console.log(docs[i].firstname);
             }
-            var query = Students.remove();
+            var query = Student.remove();
             query.exec(function(err, results) 
             {
                 console.log("\n%d Documents Deleted.", results);
-                Students.find({}, function(err, docs) 
+                Student.find({}, function(err, docs) 
                 {
                     console.log("\nAfter delete: ");
                     for (var i in docs) 
                     {
-                        console.log(docs[i].fullName());
+                        console.log(docs[i].firstname);
                     }
                     mongoose.disconnect();
                 }); // end Students.find
@@ -161,7 +162,7 @@ function CreateDatabaseAndCollection()
             classification: "Senior",
             status: "Current",
             portfolio: "github.com/jason75080/cidm4382finalproject",
-            linkin: "linkedin.jason75080.com"
+            linkedin: "linkedin.jason75080.com"
         });
         
         var student002 = new Student(
@@ -173,7 +174,7 @@ function CreateDatabaseAndCollection()
             classification: "Freshman",
             status: "Current",
             portfolio: "github.com/seciachase/cidm4382finalproject",
-            linkin: "linkedin.seciachase.com"
+            linkedin: "linkedin.seciachase.com"
         });
         
         var student003 = new Student(
@@ -185,12 +186,11 @@ function CreateDatabaseAndCollection()
             classification: "Senior",
             status: "Current",
             portfolio: "github.com/mayra/cidm4382finalproject",
-            linkin: "linkedin.mayragomez.com"
+            linkedin: "linkedin.mayragomez.com"
         });
         
         var student004 = new Student(
         {
-            idnumber: "004",
             firstname: "Lauren",
             lastname: "Alvarez",
             phone: "2146664499",
@@ -198,7 +198,7 @@ function CreateDatabaseAndCollection()
             classification: "Junior",
             status: "Current",
             portfolio: "github.com/lauren/project",
-            linkin: "linkedin.laurenalvarez.com"
+            linkedin: "linkedin.laurenalvarez.com"
         });
         
         var student005 = new Student(
@@ -210,7 +210,7 @@ function CreateDatabaseAndCollection()
             classification: "Sophomore",
             status: "Current",
             portfolio: "github.com/anthony/finalproject",
-            linkin: "linkedin.anthonyp.com"
+            linkedin: "linkedin.anthonyp.com"
         });
         
         var student006 = new Student(
@@ -222,7 +222,7 @@ function CreateDatabaseAndCollection()
             classification: "Graduate",
             status: "Alumni",
             portfolio: "github.com/dustin/finalproject",
-            linkin: "linkedin.dustinbell.com"
+            linkedin: "linkedin.dustinbell.com"
         });
         
         var student007 = new Student(
@@ -234,7 +234,7 @@ function CreateDatabaseAndCollection()
             classification: "HS",
             status: "Prospect",
             portfolio: "github.com/jordan/finalproject",
-            linkin: "linkedin.jordanb.com"
+            linkedin: "linkedin.jordanb.com"
         });
         
         var student008 = new Student(
@@ -246,7 +246,7 @@ function CreateDatabaseAndCollection()
             classification: "Freshman",
             status: "Current",
             portfolio: "github.com/derrick/finalproject",
-            linkin: "linkedin.derrickburns.com"
+            linkedin: "linkedin.derrickburns.com"
         });
         
         var student009 = new Student(
@@ -258,7 +258,7 @@ function CreateDatabaseAndCollection()
             classification: "Junior",
             status: "Current",
             portfolio: "github.com/brett/finalproject",
-            linkin: "linkedin.brettd.com"
+            linkedin: "linkedin.brettd.com"
         });
         
         var student010 = new Student(
@@ -270,7 +270,7 @@ function CreateDatabaseAndCollection()
             classification: "Senior",
             status: "Current",
             portfolio: "github.com/leeland/finalproject",
-            linkin: "linkedin.leelandh.com"
+            linkedin: "linkedin.leelandh.com"
         });
         
         var student011 = new Student(
@@ -282,7 +282,7 @@ function CreateDatabaseAndCollection()
             classification: "HS",
             status: "Prospect",
             portfolio: "github.com/chern/finalproject",
-            linkin: "linkedin.chernhee.com"
+            linkedin: "linkedin.chernhee.com"
         });
         
         var student012 = new Student(
@@ -294,7 +294,7 @@ function CreateDatabaseAndCollection()
             classification: "Graduate",
             status: "Alumni",
             portfolio: "github.com/magallanes/finalproject",
-            linkin: "linkedin.magallanes.com"
+            linkedin: "linkedin.magallanes.com"
         });
         
         var student013 = new Student(
@@ -306,7 +306,7 @@ function CreateDatabaseAndCollection()
             classification: "Graduate",
             status: "Alumni",
             portfolio: "github.com/mata/finalproject",
-            linkin: "linkedin.mata.com"
+            linkedin: "linkedin.mata.com"
         });
         
         var student014 = new Student(
@@ -318,7 +318,7 @@ function CreateDatabaseAndCollection()
             classification: "Senior",
             status: "Current",
             portfolio: "github.com/james/finalproject",
-            linkin: "linkedin.james.com"
+            linkedin: "linkedin.james.com"
         });
         
         var student015 = new Student(
@@ -330,11 +330,73 @@ function CreateDatabaseAndCollection()
             classification: "Freshman",
             status: "Current",
             portfolio: "github.com/skyler/finalproject",
-            linkin: "linkedin.skyler.com"
+            linkedin: "linkedin.skyler.com"
+        });
+        
+        var student016 = new Student(
+        {
+            firstname: "Tony",
+            lastname: "Romo",
+            phone: "2145554567",
+            email: "tony09@gmail.com",
+            classification: "Graduate",
+            status: "Alumni",
+            portfolio: "github.com/tony09/cidm4382finalproject",
+            linkedin: "linkedin.tony09.com"
+        });
+        
+        var student017 = new Student(
+        {
+            firstname: "DeMarco",
+            lastname: "Murray",
+            phone: "8065559876",
+            email: "marco29@gmail.com",
+            classification: "HS",
+            status: "Prospect",
+            portfolio: "github.com/murray29/cidm4382finalproject",
+            linkedin: "linkedin.marco29.com"
+        });
+        
+        var student018 = new Student(
+        {
+            firstname: "Dez",
+            lastname: "Bryant",
+            phone: "8175556372",
+            email: "dez88@gmail.com",
+            classification: "Graduate",
+            status: "Alumni",
+            portfolio: "github.com/dez88/cidm4382finalproject",
+            linkedin: "linkedin.dez88.com"
+        });
+        
+        var student019 = new Student(
+        {
+            firstname: "Orlando",
+            lastname: "Scandrick",
+            phone: "2145550001",
+            email: "orlando32@gmail.com",
+            classification: "HS",
+            status: "Prospect",
+            portfolio: "github.com/orlando32/cidm4382finalproject",
+            linkedin: "linkedin.orlando32.com"
+        });
+        
+        var student020 = new Student(
+        {
+            firstname: "Dustin",
+            lastname: "Vaughan",
+            phone: "8065551526",
+            email: "dustin10@gmail.com",
+            classification: "Graduate",
+            status: "Alumni",
+            portfolio: "github.com/dustin10/cidm4382finalproject",
+            linkedin: "linkedin.dustin10.com"
         });
         
 
-        Student.create([student004], function(err, records) 
+        Student.create([student001,student002,student003,student004,student005,student006,student007,
+                        student008,student009,student010,student011,student012,student013,student014,
+                        student015,student016,student017,student018,student019,student020], function(err, records) 
         {
             console.log("\nThese are the student documents that were created:");
             var query = Student.find();
