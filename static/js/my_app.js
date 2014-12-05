@@ -38,7 +38,7 @@ var finalapp = angular.module('myApp', []);
                 $scope.error = "";
             }).
             error(function(data, status, headers, config) {
-                $scope.user = {};
+                $scope.user = {}
                 $scope.error = data;
             });
         }

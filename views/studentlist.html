@@ -47,7 +47,7 @@
             <ul>
                 <li ng-repeat="stud in students | filter:filterText:strict | orderBy: 'lastname'">
                  
-                    <a href='/student/'>{{stud.firstname}} {{stud.lastname}}</a>
+                    <a href='/student/{{student.firstname}}'>{{stud.firstname}} {{stud.lastname}}</a>
                     <div>
                   <div class="check-element animate-show" ng-show="checked">
                     {{stud.status}} - {{stud.classification}}

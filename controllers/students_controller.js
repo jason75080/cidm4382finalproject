@@ -1,12 +1,12 @@
 var mongoose = require('mongoose');
 var Student = mongoose.model('Student');
     
-//this is exported for external use - the routing code will call this
+//this is exported for external use - the routing code will call thisdate
 exports.getStudent = function(req, res) {
     //using the student model find student
-    alert("Dude");
+
     Student.findOne({
-            _id: req.query.firstname
+            _id: req.query.id
         })
         .exec(function(err, student) {
             if (!student) {
@@ -31,7 +31,7 @@ exports.getStudents = function(req, res) {
                 alert(err);
             }
             if (!students) {
-                res.json(404, {
+                res.json(404, {  
                     msg: 'List of Students Not Found.'
                 });
             }
