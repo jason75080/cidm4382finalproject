@@ -6,7 +6,7 @@ exports.getStudent = function(req, res) {
     //using the student model find student
 
     Student.findOne({
-            _id: req.query.id
+            _id: req.query.student_id
         })
         .exec(function(err, student) {
             if (!student) {

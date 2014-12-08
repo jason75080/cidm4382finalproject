@@ -17,10 +17,10 @@
     
             <b>Filter Students:</b><br />
             <span class="fname">By first name:</span>
-            <input type="text" size="5" ng-model="filterText.firstname" />
+            <input type="text" ng-model="filterText.firstname" />
             <br />
             By last name:
-            <input type="text" size="20" ng-model="filterText.lastname" />
+            <input type="text" ng-model="filterText.lastname" />
             <br />
             <span>By status:</span>
             <select ng-model="filterText.status">
@@ -43,11 +43,15 @@
     
             <hr>
             <br>
-            Details: <input class="box" type="checkbox" ng-model="checked"><br/>
+            
+            details: <input class="box" type="checkbox" ng-model="checked"><br/>
+            
             <ul>
                 <li ng-repeat="stud in students | filter:filterText:strict | orderBy: 'lastname'">
                  
-                    <a href='/student/{{student.firstname}}'>{{stud.firstname}} {{stud.lastname}}</a>
+                    <a href="/student/{{stud.id}}">{{stud.firstname}} {{stud.lastname}} </a>
+                    
+                    
                     <div>
                   <div class="check-element animate-show" ng-show="checked">
                     {{stud.status}} - {{stud.classification}}
@@ -59,6 +63,26 @@
                     Portfolio Link: <a href="#">{{stud.portfolio}}</a>
                     <br />
                     LinkedIn: <a href="#">{{stud.linkedin}}</a>
+                    <br>
+                    Student Events:
+                    <ul>
+                        <li ng-repeat="event in stud.events">
+                            {{event.name}} - {{event.type}} - {{event.description}}
+                        </li>
+                    </ul>
+                    
+                    <div ng-controller="photoController">
+                        <div id="photosContainer">
+                            <div class="photoItem" ng-repeat="photo in photos">
+                                <!-- notice how ng-src allows for the use of an expression to specify photo name -->
+                                <img class="listPhoto" ng-click="setPhoto(photo._id)" ng-src="./static/images/{{photo.filename}}" />
+                            </div>
+                        </div>
+                    </div>
+                    
+                   
+                    
+                
                     <br /><br />
                   </div>
                 </div>
@@ -87,3 +111,5 @@
 </body>
 
 </html>
+
+<!--http://devzone.co.in/angularjs-example-simple-user-comment-box/-

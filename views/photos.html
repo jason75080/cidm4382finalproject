@@ -1,0 +1,43 @@
+<!-- this is an AngularJS template -->
+<!doctype html>
+<html ng-app="myApp">
+
+<head>
+    <title>Comments</title>
+    <!-- we'll make extensive use of styling for this one -->
+    <link rel="stylesheet" type="text/css" href="/static/css/comment_styles.css" />
+</head>
+
+<body>
+    <h2>Comments Example</h2>
+    <!-- defining the controller for photos -->
+    <div ng-controller="photoController">
+        <div id="photosContainer">
+            <div class="photoItem" ng-repeat="photo in photos">
+                <!-- notice how ng-src allows for the use of an expression to specify photo name -->
+                <img class="listPhoto" ng-click="setPhoto(photo._id)" ng-src="../static/images/{{photo.filename}}" />
+            </div>
+        </div>
+        <div>
+            <div id="photoContainer">
+                <p class="imageTitle">{{photo.title}}</p>
+                <img class="mainPhoto" ng-src="../static/images/{{photo.filename}}" />
+            </div>
+            <!-- ng-init is new here. This is used to initialize values -->
+            <div id="photoComments" ng-init="addComment=false;replySubject='';replyBody=''">
+                <!-- ng-include is also new. It is used to bring in another file which contains
+                     a partial template/snippet to be used to help contruct the entire
+                     template.  This is for good modularity and reusability -->
+                <div class="comment" ng-include="'/static/comment_thread.html'"></div>
+            </div>
+        </div>
+    </div>
+
+
+        <!-- bring in AngularJS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+        <!-- this is our Angular Module -->
+        <script src="/static/js/comment_app.js"></script>
+</body>
+
+</html>

@@ -17,6 +17,8 @@ var mongoose = require('mongoose');
 require('./models/users_model.js');
 require('./models/students_model.js');
 
+
+
 var connString = "mongodb://" + process.env.IP + ":27017/";
 
 console.log(connString + 'users');

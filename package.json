@@ -15,7 +15,8 @@
     "cookie-parser": "latest",
     "cookie-session": "latest",
     "express-session": "latest",
-    "serve-static": "latest"
+    "serve-static": "latest",
+    "angular-route": "~1.3.0"
   },
   "engine": "node >= 0.10.33"
 }

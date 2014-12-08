@@ -2,9 +2,24 @@
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
     
+var eventComment = new Schema({
+    subject: String,
+    body: String
+})
+    
+var studentEvent = new Schema({
+    name: String,
+    type: String,
+    description: String,
+    comments: [eventComment]
+});
+    
 //defining a photo document/collection
 var studentSchema = new Schema({
-     firstname: { type: String, index: 1, required: true },
+    // idNumber field
+    idnumber: {type: String, index: 1, require: true},
+    // firstname field
+    firstname: { type: String, index: 1, required: true },
     // the last name field
     lastname: { type: String, index: 1, required: true },
     // phone
@@ -18,8 +33,12 @@ var studentSchema = new Schema({
     //portfolio repository
     portfolio: {type: String, index: 1, required: false},
     //linkedin link
-    linkedin: {type: String, index: 1, required: false}
-    //commentId: Schema.ObjectId
+    linkedin: {type: String, index: 1, required: false},
+    //events array
+    events: [studentEvent]
 });
 
+
+
 mongoose.model('Student', studentSchema);
+mongoose.model('StudentEvent', studentEvent);
