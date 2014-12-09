@@ -7,7 +7,7 @@
 // -then preview with web server
 
 // all passwords will be: test
-
+//this was imported by jason from the example code, some modifications were added by Jason, Secia, Mayra
 var express = require('express');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');

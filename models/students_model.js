@@ -1,4 +1,7 @@
 /*As usual, bring in mongoose and make a schema */
+
+// Jason, Secia, Mayra worked on this
+
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
     

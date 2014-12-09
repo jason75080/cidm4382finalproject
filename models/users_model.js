@@ -3,6 +3,9 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 //his defines the schema for the document/collection
 
+//Jason worked on this
+
+
 var UserSchema = new Schema({
     //the username field
     username: { type: String, index: 1, required: true, unique: true },

@@ -2,6 +2,11 @@
    site.  We use the http middleware to handle a get to the user profile.
    This was set up in the routes.js Express module.
 */
+
+/*
+    Jason, Secia, and Mayra worked on this page
+*/
+
 var finalapp = angular.module('myApp', []);
     //sets up the controller on this module
     finalapp.controller('myController', ['$scope', '$http',
@@ -19,8 +24,22 @@ var finalapp = angular.module('myApp', []);
 ]);
 
     
-finalapp.controller('otherController', ['$scope', '$http',
-    function($scope, $http) {
+finalapp.controller('otherController', ['$scope', '$http', '$location',
+    function($scope, $http, $location) {
+        $scope.setStudent = function(studentid)
+        {
+            //$scope.currentStudent = studentid;
+            $http.get('/student/' + studentid)
+            .success(function(data, status, headers, config) {
+                $scope.student = data;
+                $scope.error = "";
+                $location.path('/student');
+            }).
+            error(function(data, status, headers, config) {
+                $scope.user = {};
+                $scope.error = data;
+            });            
+        };
         
         $http.get('/students/list')
         .success(function(data, status, headers, config) {
@@ -31,19 +50,7 @@ finalapp.controller('otherController', ['$scope', '$http',
             $scope.user = {};
             $scope.error = data;
         });
-        
-        $http.get('/student/firstname')
-        
-        .success(function(data, status, headers, config) {
-            $scope.students = data;
-            $scope.error = "";
-        }).
-        error(function(data, status, headers, config) {
-            $scope.user = {};
-            $scope.error = data;
-        });
     }
-    
 ]);
 
 function CommentObj($http) {

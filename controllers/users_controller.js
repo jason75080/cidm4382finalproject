@@ -1,3 +1,8 @@
+/*
+    Worked on by all of us and pasted from the author's code
+*/
+
+
 var crypto = require('crypto');
 var mongoose = require('mongoose'),
     User = mongoose.model('User');

@@ -1,5 +1,7 @@
 <!-- this IS an AngularJS template.  This is what we see when the site loads
 -->
+<!--Secia worked on this
+-->
 <!doctype html>
 <html ng-app="myApp">
 
@@ -7,6 +9,10 @@
     <title>User Login and Sessions</title>
     
     <link rel="stylesheet" type="text/css" href="/static/css/studentList.css" />
+    
+    
+   
+    
 </head>
 
 <body>
@@ -49,9 +55,9 @@
             <ul>
                 <li ng-repeat="stud in students | filter:filterText:strict | orderBy: 'lastname'">
                  
-                    <a href="/student/{{stud.id}}">{{stud.firstname}} {{stud.lastname}} </a>
-                    
-                    
+                    <a href="/student/{{stud.idnumber}}">{{stud.firstname}} {{stud.lastname}} </a>
+                    <!--<a href="#" ng-click="setStudent(stud.idnumber)">{{stud.firstname}} {{stud.lastname}} </a>-->
+
                     <div>
                   <div class="check-element animate-show" ng-show="checked">
                     {{stud.status}} - {{stud.classification}}
@@ -68,17 +74,23 @@
                     <ul>
                         <li ng-repeat="event in stud.events">
                             {{event.name}} - {{event.type}} - {{event.description}}
+                            
+                            <div class ="div1">
+                                <form ng-controller="FrmController">
+                                    <h4>Comments</h4>
+                                        <ul>
+                                            <li ng-repeat="comnt in comment"> {{ comnt }} <a  style="float: right;" href="" ng-click="remItem($index)">x</a></li>
+                                        </ul>
+                                    
+                                    <form ng-controller="FrmController">
+                                        <textarea ng-model="txtcomment" placeholder="Post Comment" ></textarea>
+                                        <button ng-click='btn_add();' style='margin-top:10px;'>Post Comment</button>
+                                     </form> 
+                            </div>
+                            
                         </li>
                     </ul>
                     
-                    <div ng-controller="photoController">
-                        <div id="photosContainer">
-                            <div class="photoItem" ng-repeat="photo in photos">
-                                <!-- notice how ng-src allows for the use of an expression to specify photo name -->
-                                <img class="listPhoto" ng-click="setPhoto(photo._id)" ng-src="./static/images/{{photo.filename}}" />
-                            </div>
-                        </div>
-                    </div>
                     
                    
                     
@@ -106,10 +118,25 @@
     <%= msg %>
         <script src="./static/js/angular.min.js"></script>
         <script src="./static/js/my_app.js"></script>
+        <script type="text/javascript">
+            function FrmController($scope) {
+                $scope.comment = [];
+                $scope.btn_add = function() {
+                    if($scope.txtcomment !==''){
+                    $scope.comment.push($scope.txtcomment);
+                    $scope.txtcomment = "";
+                    }
+                }
+ 
+                $scope.remItem = function($index) {
+                    $scope.comment.splice($index, 1);
+                }
+            }
+        </script>
         
     </div>   
 </body>
-
+ 
 </html>
 
 <!--http://devzone.co.in/angularjs-example-simple-user-comment-box/-

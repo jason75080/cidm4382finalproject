@@ -1,12 +1,19 @@
 var mongoose = require('mongoose');
 var Student = mongoose.model('Student');
-    
+ 
+ //Jason, Mayra,& Secia all worked on this   
+ 
+ 
 //this is exported for external use - the routing code will call thisdate
 exports.getStudent = function(req, res) {
     //using the student model find student
+    
+    var uid = req.param("idnumber");
+    
+    console.log(uid);
 
     Student.findOne({
-            _id: req.query.student_id
+            idnumber: uid
         })
         .exec(function(err, student) {
             if (!student) {

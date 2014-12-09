@@ -1,6 +1,9 @@
 // Defines the routes for the Express sever. This file handles
 // functionality that does not apply to the database
 
+
+// Jason, Secia and Mayra worked on parts of this
+
 var crypto = require('crypto');
 var express = require('express');
 module.exports = function(app) {
@@ -70,5 +73,6 @@ module.exports = function(app) {
   app.post('/login', users.login);
   app.get('/user/profile', users.getUserProfile);
   app.get('/students/list', students.getStudents);
-  app.get('/student/firstname', students.getStudent);
+  //page 362 in chapter 18
+  app.get('/student/:idnumber', students.getStudent);
 }
